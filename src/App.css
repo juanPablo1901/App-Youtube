@@ -15,6 +15,11 @@ Colores:
   padding: 2rem;
   text-align: center;
   font-family: League Gothic;
+  background-color: #000000;
+}
+
+.body{
+ background-color: #000000;
 }
 
 

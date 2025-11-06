@@ -1,0 +1,43 @@
+#root{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: League Gothic;
+  background-color: #000000;
+}
+
+.info-user{
+  position: fixed;
+  top: 15px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.Avatar-user{
+    width: 50px;
+    height: 50px;
+    color: #eeeeee;
+}
+
+.User{
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.User{
+    margin: 0;
+}
+
+.Acount{
+    font-size: 15px;
+    color: #8d8686;
+    margin: 2px 0 0 0;
+
+}
+

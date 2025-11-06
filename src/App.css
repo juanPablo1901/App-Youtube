@@ -1,0 +1,137 @@
+/*
+Colores: 
+
+#e31010	Rojo
+#eeeeee	blanco
+#b2b2b2	gris claro
+#8d8686	gris oscuro
+#000000 negro
+
+*/
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: League Gothic;
+}
+
+
+/*Logo derecha*/
+.logo{
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.logo .logo-youtube{
+  color: #e31010;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.logo h3 { 
+  margin: 0;
+  font-size: 20px;
+  color: #eeeeee;
+  line-height: 1;
+}
+
+/*logo derecha*/
+.Botones-super {
+  position: fixed;
+  top: 17px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+.Botones-super svg{
+width: 25px;
+height: 25px;
+}
+
+.Botones-super .logo{
+  cursor: pointer;
+  font-size: 30;
+  align-items: center;
+  justify-content: center;
+}
+
+.Nav {
+  padding-bottom: 60px;
+}
+
+.Botones {
+  background-color: #000000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eeeeee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.Boton-link{
+  text-decoration: none;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eeeeee;
+  font-size: 10px;
+}
+
+.Boton-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+}
+
+.Boton-icon svg{
+  color: #eeeeee;
+}
+
+
+.Boton-link.active .Boton-icon .icon-short {
+  color: #eeeeee;
+  fill: #eeeeee;
+  filter:drop-shadow(0 0 1px rgba(255, 255, 255, 0.9));;
+}
+
+.Boton-link:hover{
+ color: #eeeeee;
+}
+
+.icon-short{
+  color: #000000;
+  fill: #000000;
+  filter: 
+    drop-shadow(0 0 0.3px #ffffff)
+    drop-shadow(0 0 1.5px #eeeeee);
+  transition: all 0.25s ease;
+
+}
+
+@media (max-width: 600px){
+  .Boton-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

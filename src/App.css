@@ -10,9 +10,10 @@ Colores:
 */
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-family: League Gothic;
   background-color: #000000;
@@ -21,7 +22,6 @@ Colores:
 .body{
  background-color: #000000;
 }
-
 
 /*Logo derecha*/
 .logo{

@@ -1,5 +1,12 @@
 import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { AuthProvider, useAuth } from './context/AuthContext'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
+
+// Si no tienes `src/pages/Home` o `src/pages/Profile`, usamos los componentes existentes
+import Home from './componentes/Principal/index'
+import Profile from './componentes/Personal/index'
 
 /* Icons */
 import { CiSearch } from "react-icons/ci";
@@ -63,6 +70,7 @@ function App() {
   return (
   <>
   <Router>
+  <AuthProvider>
 
     <div className='logo'>
       <FaYoutube className='logo-youtube'/>
@@ -77,23 +85,57 @@ function App() {
 
     
       <div className='Nav'>
-      <Routes>
-          <Route path='/' element={<Navigate to="/principal" replace />} />
-
-          <Route path="/principal" element={<Principal />} />
-          <Route path="/shorts" element={<Shorts />} />
-          <Route path="/suscripciones" element={<Suscripciones />} />
-          <Route path="/personal" element={<Personal />} />
-
-          <Route path='*' element={<Principal />} />
-      </Routes>
+      <AppRoutes />
       <Nav />
 
       </div>
+    </AuthProvider>
     </Router>
 
   </>
   );
+}
+
+// Componente para rutas protegidas
+function ProtectedRoute({ children }) {
+  const { user } = useAuth()
+  return user ? children : <Navigate to="/login" />
+}
+
+// Componente para rutas públicas (si ya está autenticado, redirigir a home)
+function PublicRoute({ children }) {
+  const { user } = useAuth()
+  return !user ? children : <Navigate to="/" />
+}
+
+function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/login" element={
+        <PublicRoute>
+          <Login />
+        </PublicRoute>
+      } />
+      
+      <Route path="/register" element={
+        <PublicRoute>
+          <Register />
+        </PublicRoute>
+      } />
+      
+      <Route path="/" element={
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      } />
+      
+      <Route path="/profile" element={
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+      } />
+    </Routes>
+  )
 }
 
 export default App

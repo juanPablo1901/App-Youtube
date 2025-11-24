@@ -1,0 +1,22 @@
+.subs-container {
+  margin-top: 80px;
+  padding-bottom: 80px;
+  padding: 10px;
+}
+
+.lista-canales {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.canal {
+  width: 100px;
+  text-align: center;
+}
+
+.canal img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

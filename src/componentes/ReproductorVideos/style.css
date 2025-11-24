@@ -1,0 +1,30 @@
+.player-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.player-box {
+  width: 80%;
+  max-width: 900px;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.close-btn {
+  background: #ff0000;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}

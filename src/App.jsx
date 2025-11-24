@@ -14,6 +14,7 @@ import Personal from'./componentes/Personal/index'
 import Principal from './componentes/Principal/index'
 import Shorts from './componentes/Shorts/index'
 import Suscripciones from './componentes/Suscripciones/index'
+import VideoPlayer from './componentes/ReproductorVideos/index'
 
 import './App.css'
 
@@ -81,6 +82,7 @@ function App() {
           <Route path='/' element={<Navigate to="/principal" replace />} />
 
           <Route path="/principal" element={<Principal />} />
+          <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/shorts" element={<Shorts />} />
           <Route path="/suscripciones" element={<Suscripciones />} />
           <Route path="/personal" element={<Personal />} />

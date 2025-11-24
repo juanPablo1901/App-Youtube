@@ -9,134 +9,157 @@ Colores:
 
 */
 
+/* Evita que todo se pegue al notch en móviles */
 #root {
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   text-align: center;
   font-family: League Gothic;
-  background-color: #000000;
+  background-color: #000;
 }
 
-.body{
- background-color: #000000;
+.body {
+  background-color: #000;
 }
 
-/*Logo derecha*/
-.logo{
+
+/* ------------------------- */
+/* LOGO SUPERIOR IZQUIERDA  */
+/* ------------------------- */
+.logo {
   position: fixed;
-  top: 15px;
-  left: 20px;
+  top: calc(10px + env(safe-area-inset-top));
+  left: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
-  z-index: 1000;
-  cursor: pointer;
+  z-index: 999;
 }
 
-.logo .logo-youtube{
+.logo .logo-youtube {
   color: #e31010;
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
+  width: 28px;
+  height: 28px;
 }
 
-.logo h3 { 
+.logo h3 {
   margin: 0;
   font-size: 20px;
-  color: #eeeeee;
-  line-height: 1;
+  color: #fff;
 }
 
-/*logo derecha*/
+h3 {
+  color: #eee;
+}
+
+/* ------------------------- */
+/* ICONOS SUPERIORES DERECHA */
+/* ------------------------- */
 .Botones-super {
   position: fixed;
-  top: 17px;
-  right: 20px;
+  top: calc(10px + env(safe-area-inset-top));
+  right: 16px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  z-index: 1000;
-  color: #eeeeee;
-  cursor: pointer;
+  gap: 14px;
+  z-index: 999;
+  color: #fff;
 }
 
-.Botones-super svg{
-width: 25px;
-height: 25px;
+.Botones-super svg {
+  width: 24px;
+  height: 24px;
 }
 
-.Botones-super .logo{
-  cursor: pointer;
-  font-size: 30;
-  align-items: center;
-  justify-content: center;
-}
-
+/* CONTENIDO + SAFE AREA     */
 .Nav {
-  padding-bottom: 60px;
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  background-color: #000;
 }
 
+/* NAV INFERIOR (YouTube)*/
 .Botones {
-  background-color: #000000;
+  background-color: #000;
   position: fixed;
-  bottom: 0;
+  bottom: env(safe-area-inset-bottom, 0);
   left: 0;
   width: 100%;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #222;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
-  z-index: 1000;
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  z-index: 999;
 }
 
-.Boton-link{
+.Boton-link {
   text-decoration: none;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #eeeeee;
+  color: #fff;
   font-size: 10px;
 }
 
-.Boton-icon{
+.Boton-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: transparent;
+  width: 38px;
+  height: 38px;
 }
 
-.Boton-icon svg{
-  color: #eeeeee;
+.Boton-icon svg {
+  color: #fff;
 }
 
-
+/* Activo */
 .Boton-link.active .Boton-icon .icon-short {
-  color: #eeeeee;
-  fill: #eeeeee;
-  filter:drop-shadow(0 0 1px rgba(255, 255, 255, 0.9));;
+  color: #fff;
+  fill: #fff;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 1));
 }
 
-.Boton-link:hover{
- color: #eeeeee;
-}
-
-.icon-short{
-  color: #000000;
-  fill: #000000;
-  filter: 
-    drop-shadow(0 0 0.3px #ffffff)
-    drop-shadow(0 0 1.5px #eeeeee);
+/* Short icon */
+.icon-short {
+  color: #000;
+  fill: #000;
+  filter:
+    drop-shadow(0 0 0.3px #fff)
+    drop-shadow(0 0 1.2px #eee);
   transition: all 0.25s ease;
-
 }
-
-@media (max-width: 600px){
+/*Movil*/
+@media (max-width: 600px) {
   .Boton-icon {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo .logo-youtube {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logo h3 {
+    font-size: 18px;
+  }
+
+  .Botones-super svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .Botones {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  .Boton-link {
+    font-size: 9px;
   }
 }

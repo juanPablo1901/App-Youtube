@@ -1,10 +1,14 @@
-import "./style.css";
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { getVideos } from "./services/videos";
 import VideoPlayer from "../ReproductorVideos";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
+import "./style.css";
+
 export function Principal() {
+  const navigate = useNavigate();
+
   const [videos, setVideos] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -12,7 +16,7 @@ export function Principal() {
   const [videoSeleccionado, setVideoSeleccionado] = useState(null);
 
   const [hoverVideo, setHoverVideo] = useState(null);
-  const [progress, setProgress] = useState({}); // progreso de cada video
+  const [progress, setProgress] = useState({}); 
 
   const loaderRef = useRef(null);
 
@@ -54,12 +58,11 @@ export function Principal() {
   return (
     <div className="principal">
 
-      {videos.map(video => (
-        <div 
-          key={video.id} 
-          className="card-video"
-          onClick={() => setVideoSeleccionado(video)}
-        >
+      {videos.map((video, index) => (
+        <div key={`${video.url}-${video.miniatura}-${index}`} 
+        className="card-video" 
+        onClick={() => navigate(`/video/${video.id}`, { state: { video }})}>
+        
 
           {/* Miniatura */}
           <div 
@@ -120,14 +123,6 @@ export function Principal() {
       <div ref={loaderRef} className="loading">
         {loading && <p>Cargando más videos...</p>}
       </div>
-
-      {/* Reproductor */}
-      {videoSeleccionado && (
-        <VideoPlayer 
-          video={videoSeleccionado}
-          onClose={() => setVideoSeleccionado(null)}
-        />
-      )}
 
     </div>
   );
